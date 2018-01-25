@@ -14,3 +14,24 @@ npm start
 ```
 
 Now open your web browser and go to http://127.0.0.1:3000/
+
+## Switch from jade to html
+
+```
+npm install ejs
+```
+
+In `app.js` replace
+
+```
+app.set('view engine', 'jade');
+```
+
+with
+
+```
+app.engine('html', require('ejs').renderFile);
+app.set('view engine', 'html');
+```
+
+Delete `layout.jade` and replace `index.jade` and `error.jade` with `index.html` and `error.html`
