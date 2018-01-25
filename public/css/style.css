@@ -2,3 +2,13 @@ h1 {
   color: blue;
   text-align: center;
 }
+
+td {
+  border: 1px solid black;
+  height: 50px;
+  width: 50px;
+}
+
+.board {
+  margin: 0 auto;
+}
