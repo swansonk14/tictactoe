@@ -10,6 +10,19 @@ function changeTurns() {
     setTurnText();
 }
 
+function endGame(info) {
+    gameOver = true;
+    
+    $('#game-info')[0].innerHTML = info;
+
+    // Clear all boxes of cursor
+    for (var row = 0; row <= 2; row++) {
+        for (var col = 0; col <= 2; col++) {
+            $('#board-' + row + '-' + col)[0].style.cursor = null;
+        }
+    }
+}
+
 function isWinner() {
     var board = [];
 
@@ -35,8 +48,9 @@ function isWinner() {
         board[0][2] != '' && board[0][2] == board[1][2] && board[1][2] == board[2][2] ||
         board[0][0] != '' && board[0][0] == board[1][1] && board[1][1] == board[2][2] ||
         board[2][0] != '' && board[2][0] == board[1][1] && board[1][1] == board[0][2]) {
-        $('#game-info')[0].innerHTML = 'Player ' + turn + ' wins!';
-        gameOver = true;
+        
+        endGame('Player ' + turn + ' wins!');
+
         return true;
     }
 
@@ -54,8 +68,8 @@ function isTie() {
     }
 
     // Game is tied
-    $('#game-info')[0].innerHTML = 'Tie game!';
-    gameOver = true;
+    endGame('Tie game!');
+
     return true;
 }
 
@@ -68,6 +82,8 @@ function takeTurn() {
 
     if (box.innerHTML == '') {
         box.innerHTML = '<img src="images/' + turn + '.png" \>';
+        box.style.cursor = null;
+        console.log(box.style.cursor);
 
         if (!isWinner() && !isTie()) {
             changeTurns();
@@ -83,7 +99,10 @@ function restartGame() {
     // Remove x and o from boxes
     for (var row = 0; row <= 2; row++) {
         for (var col = 0; col <= 2; col++) {
-            $('#board-' + row + '-' + col)[0].innerHTML = '';
+            var box = $('#board-' + row + '-' + col)[0];
+
+            box.innerHTML = '';
+            box.style.cursor = 'pointer';
         }
     }
 }
