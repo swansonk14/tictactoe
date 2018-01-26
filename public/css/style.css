@@ -3,12 +3,22 @@ h1 {
   text-align: center;
 }
 
+h2 {
+  text-align: center;
+}
+
 td {
   border: 1px solid black;
-  height: 50px;
-  width: 50px;
+  height: 200px;
+  width: 200px;
+  cursor: pointer;
 }
 
 .board {
   margin: 0 auto;
+}
+
+.restart {
+  margin: 0 auto;
+  display: block;
 }

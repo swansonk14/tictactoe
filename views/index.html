@@ -7,29 +7,28 @@
     <script type="text/javascript" src="js/game.js"></script>
 </head>
 <body>
+    <h1>Tic Tac Toe</h1>
 
-<h1>My First Heading</h1>
+    <table class="board">
+        <tr>
+            <td id="board-0-0"></td>
+            <td id="board-0-1"></td>
+            <td id="board-0-2"></td>
+        </tr>
+        <tr>
+            <td id="board-1-0"></td>
+            <td id="board-1-1"></td>
+            <td id="board-1-2"></td>
+        </tr>
+        <tr>
+            <td id="board-2-0"></td>
+            <td id="board-2-1"></td>
+            <td id="board-2-2"></td>
+        </tr>
+    </table>
 
-<img src="images/o.png" />
-<img src="images/x.png" />
+    <h2 id="turn"></h2>
 
-<table class="board">
-    <tr>
-        <td id="board-0-0"></td>
-        <td id="board-0-1"></td>
-        <td id="board-0-2"></td>
-    </tr>
-    <tr>
-        <td id="board-1-0"></td>
-        <td id="board-1-1"></td>
-        <td id="board-1-2"></td>
-    </tr>
-    <tr>
-        <td id="board-2-0"></td>
-        <td id="board-2-1"></td>
-        <td id="board-2-2"></td>
-    </tr>
-</table>
-
+    <button type="button" id="restart">Restart game</button>
 </body>
 </html>
