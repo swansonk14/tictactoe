@@ -11,6 +11,35 @@ function changeTurns() {
 }
 
 function isWinner() {
+    var board = [];
+
+    // Get HTML for each box in board
+    for (var row = 0; row <= 2; row++) {
+        var boardRow = [];
+
+        for (var col = 0; col <= 2; col++) {
+            boardRow.push($('#board-' + row + '-' + col)[0].innerHTML);
+        }
+
+        board.push(boardRow);
+    }
+
+    // Check for winner
+    console.log(board[0][0]);
+
+    if (board[0][0] != '' && board[0][0] == board[0][1] && board[0][1] == board[0][2] ||
+        board[1][0] != '' && board[1][0] == board[1][1] && board[1][1] == board[1][2] ||
+        board[2][0] != '' && board[2][0] == board[2][1] && board[2][1] == board[2][2] ||
+        board[0][0] != '' && board[0][0] == board[1][0] && board[1][0] == board[2][0] ||
+        board[0][1] != '' && board[0][1] == board[1][1] && board[1][1] == board[2][1] ||
+        board[0][2] != '' && board[0][2] == board[1][2] && board[1][2] == board[2][2] ||
+        board[0][0] != '' && board[0][0] == board[1][1] && board[1][1] == board[2][2] ||
+        board[2][0] != '' && board[2][0] == board[1][1] && board[1][1] == board[0][2]) {
+        $('#game-info')[0].innerHTML = 'Player ' + turn + ' wins!';
+        gameOver = true;
+        return true;
+    }
+
     return false;
 }
 
